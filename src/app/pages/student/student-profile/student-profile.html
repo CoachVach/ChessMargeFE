@@ -1,0 +1,18 @@
+<div class="student-profile-bg" *ngIf="student">
+  <div class="student-profile-header glass">
+    <div class="student-avatar">
+      <span>{{ getInitials(student.fullName) }}</span>
+    </div>
+    <div class="student-profile-main">
+      <div class="student-profile-name">{{ student.fullName }}</div>
+      <div class="student-profile-email"><mat-icon>mail</mat-icon> {{ student.email || '-' }}</div>
+      <div class="student-profile-phone" *ngIf="student.phoneNumber"><mat-icon>phone</mat-icon> {{ student.phoneNumber }}</div>
+    </div>
+  </div>
+  <div class="student-profile-details glass">
+    <div class="detail-row"><span class="label">Fecha de nacimiento:</span> <span>{{ student.birthdate ? (student.birthdate | date:'d MMM, yyyy') : '-' }}</span></div>
+    <div class="detail-row"><span class="label">Elo FIDE:</span> <span>{{ student.eloFIDE ?? '-' }}</span></div>
+    <div class="detail-row"><span class="label">Elo Online:</span> <span>{{ student.eloOnline ?? '-' }}</span></div>
+    <div class="detail-row"><span class="label">Notas:</span> <span>{{ student.notes || '-' }}</span></div>
+  </div>
+</div>

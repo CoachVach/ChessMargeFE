@@ -1,0 +1,150 @@
+<mat-toolbar color="primary" class="main-toolbar animate__fadeInDown">
+  <div routerLink="/" class="toolbar-logo"></div>
+  <span class="brand-title">Academia de Ajedrez ChessMarge</span>
+  <span class="spacer"></span>
+  <button mat-flat-button color="accent" class="header-action" routerLink="/login">
+    <mat-icon>login</mat-icon> Iniciar Sesión
+  </button>
+</mat-toolbar>
+
+<section class="planes-hero-section elite-bg">
+  <div class="planes-hero-content glass animate__fadeInDown">
+    <h1 class="animate__fadeInDown2">Planes y Opciones de Clase</h1>
+    <div class="planes-hero-desc">
+      <p>
+        Elige la frecuencia y modalidad que mejor se adapte a tu objetivo, tiempo y presupuesto.<br>
+        Todas las clases son personalizadas y adaptadas al nivel de cada alumno.
+      </p>
+    </div>
+    <button mat-raised-button color="accent" class="hero-cta animate__fadeInUp" routerLink="/login">
+      ¡Reservar ahora! <mat-icon>arrow_forward</mat-icon>
+    </button>
+  </div>
+</section>
+
+<section class="planes-detalle-section animate__fadeInUp">
+
+  <!-- INFO GENERAL CLASES -->
+  <div class="planes-info-card glass">
+    <h2 class="planes-subtitle elite-gold">¿Cómo son las clases?</h2>
+    <ul class="planes-bullets">
+      <li><mat-icon color="primary">person</mat-icon> Individuales y grupales de 60-75 minutos.</li>
+      <li><mat-icon color="primary">groups</mat-icon> Grupos de hasta 3 personas: aprende solo o con amigos/familia.</li>
+      <li><mat-icon color="primary">timer</mat-icon> Flexibilidad de horario, opción presencial y online.</li>
+      <li><mat-icon color="primary">school</mat-icon> Todos los niveles y edades.</li>
+      <li><mat-icon color="primary">assignment</mat-icon> Incluye material extra, ejercicios y seguimiento personalizado.</li>
+    </ul>
+    <p class="planes-note">
+      <mat-icon color="accent">star</mat-icon>
+      Ahorrá más con paquetes o al elegir clases grupales/mensuales.
+    </p>
+  </div>
+
+  <!-- TABLA: INDIVIDUALES -->
+  <div class="planes-table-card glass animate__fadeInUp">
+    <h2 class="planes-subtitle elite-gold">Opciones Individuales</h2>
+    <div class="tabla-fake-wrapper">
+      <table class="planes-table">
+        <thead>
+          <tr>
+            <th>Opción</th>
+            <th>Cant./Frecuencia</th>
+            <th>Precio total</th>
+            <th>Equiv. por clase</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Clase individual suelta</td>
+            <td>1 clase</td>
+            <td>$10</td>
+            <td>$10,00</td>
+          </tr>
+          <tr>
+            <td>Paquete 5 clases</td>
+            <td>5 clases</td>
+            <td>$45</td>
+            <td>$9,00</td>
+          </tr>
+          <tr>
+            <td>Paquete 10 clases</td>
+            <td>10 clases</td>
+            <td>$85</td>
+            <td>$8,50</td>
+          </tr>
+          <tr>
+            <td>Plan mensual</td>
+            <td>1 x semana (4 clases)</td>
+            <td>$35</td>
+            <td>$8,75</td>
+          </tr>
+          <tr>
+            <td>Plan mensual</td>
+            <td>2 x semana (8 clases)</td>
+            <td>$60</td>
+            <td>$7,50</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TABLA: GRUPALES -->
+  <div class="planes-table-card glass animate__fadeInUp">
+    <h2 class="planes-subtitle elite-gold">Opciones Grupales</h2>
+    <div class="tabla-fake-wrapper">
+      <table class="planes-table">
+        <thead>
+          <tr>
+            <th>Opción</th>
+            <th>Cant./Frecuencia</th>
+            <th># Personas</th>
+            <th>Precio total</th>
+            <th>Equiv. por persona</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Clase grupal suelta</td>
+            <td>1 clase</td>
+            <td>2</td>
+            <td>$16</td>
+            <td>$8,00</td>
+          </tr>
+          <tr>
+            <td>Clase grupal suelta</td>
+            <td>1 clase</td>
+            <td>3</td>
+            <td>$21</td>
+            <td>$7,00</td>
+          </tr>
+          <tr>
+            <td>Plan mensual (2 pers.)</td>
+            <td>1 x semana (4 clases)</td>
+            <td>2</td>
+            <td>$55</td>
+            <td>$6,88</td>
+          </tr>
+          <tr>
+            <td>Plan mensual (2 pers.)</td>
+            <td>2 x semana (8 clases)</td>
+            <td>2</td>
+            <td>$95</td>
+            <td>$5,94</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tabla-note">
+      <mat-icon color="primary">event_available</mat-icon>
+      Forma tu propio grupo y reserva horarios a medida.<br>
+      <mat-icon color="primary">star</mat-icon> Los precios bajan a medida que el grupo crece o si eliges plan mensual.<br>
+      <mat-icon color="primary">done</mat-icon> ¡Consulta por grupos de 4+ personas!
+    </div>
+    <div class="tabla-cta-row">
+      <button mat-stroked-button color="primary" routerLink="/login">
+        Reservar mi cupo 
+      </button>
+    </div>
+  </div>
+</section>

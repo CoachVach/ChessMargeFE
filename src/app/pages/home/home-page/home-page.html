@@ -1,6 +1,6 @@
 <mat-toolbar color="primary" class="main-toolbar animate__fadeInDown">
-  <div class="toolbar-logo"></div>
-  <span class="brand-title">Academia de Ajedrez Marjorie Herrera</span>
+  <div routerLink="/" class="toolbar-logo"></div>
+  <span class="brand-title">Academia de Ajedrez ChessMarge</span>
   <span class="spacer"></span>
   <button mat-flat-button color="accent" class="header-action" routerLink="/login">
     <mat-icon>login</mat-icon> Iniciar Sesión
@@ -10,14 +10,14 @@
 <section class="hero-section elite-bg">
   <div class="hero-content glass animate__fadeInDown">
     <h1 class="animate__fadeInDown2">Ajedrez Élite, Enseñanza Única</h1>
-    <h2 class="animate__fadeInDown3">Con la Gran Maestra <span class="elite-gold">Marjorie Herrera</span></h2>
+    <h2 class="animate__fadeInDown3">Con la WCM <span class="elite-gold">Marjorie Herrera</span></h2>
     <div class="hero-desc">
       <p>
         Inicia tu viaje en el mundo del ajedrez o lleva tu juego al siguiente nivel.<br>
         Aprende con una campeona internacional en clases exclusivas, personales o grupales.
       </p>
     </div>
-    <button mat-raised-button color="accent" class="hero-cta animate__fadeInUp" routerLink="/login">
+    <button mat-raised-button color="accent" class="hero-cta animate__fadeInUp" routerLink="/class-detail">
       Reserva tu clase <mat-icon>arrow_forward</mat-icon>
     </button>
   </div>
@@ -35,14 +35,14 @@
       <div class="professor-photo floating-soft"></div>
     </div>
     <div class="professor-info">
-      <h2 class="elite-gold">Gran Maestra FIDE</h2>
+      <h2 class="elite-gold">WCM</h2>
       <h3 class="prof-title">Marjorie Herrera</h3>
       <blockquote class="prof-quote">
         "Formar campeones no es solo enseñar ajedrez, es inspirar sueños y disciplina para toda la vida."
       </blockquote>
       <p class="bio">
-        <b>Campeona centroamericana y referente latinoamericana</b> - 7 Olimpíadas Mundiales, entrenadora FIDE, y creadora de un método premiado internacionalmente.
-        <span class="bio-feature">+290 alumnos impactados | <span class="star">★</span> Enfoque educativo y humano</span>
+        <b>Campeona centroamericana y referente latinoamericana</b> - 2 Olimpíadas, campeonatos regionales, nacionales, e internacionales.
+        <span class="bio-feature">+100 alumnos impactados | <span class="star">★</span> Enfoque educativo y humano</span>
       </p>
       <ul class="prof-details">
         <li><span class="dot"></span> Clases para todas las edades</li>
@@ -53,8 +53,8 @@
         <a href="https://instagram.com/marjorieherrera" target="_blank" aria-label="Instagram">
           <div class="prof-icon instagram"></div>
         </a>
-        <a href="mailto:info@ajedrezmarjorie.com" aria-label="Email">
-          <mat-icon>mail_outline</mat-icon>
+        <a href="https://twitch.com/marjorieherrera" aria-label="Twitch">
+          <div class="prof-icon twitch"></div>
         </a>
       </div>
     </div>
@@ -65,53 +65,65 @@
   <div class="price-row">
     <mat-card class="price-card hover-lift">
       <mat-card-header>
-        <mat-card-title>Clase Individual Élite</mat-card-title>
+        <mat-card-title>Clases Individuales</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <ul>
-          <li>1 a 1 con la Gran Maestra</li>
+          <li>1 a 1 con la Maestra</li>
           <li>Flexibilidad total</li>
-          <li>Incluye análisis avanzado</li>
+          <li>60 a 75 minutos</li>
         </ul>
         <div class="price">
-          <span>$35</span> /hora
+          <span>$10</span> /clase
         </div>
+        <button mat-stroked-button color="primary" routerLink="/class-detail">
+          Reservar
+        </button>
       </mat-card-content>
     </mat-card>
     <mat-card class="price-card gold hover-lift">
       <mat-card-header>
-        <mat-card-title>Clase Grupal Premium</mat-card-title>
+        <mat-card-title>Planes mensuales</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <ul>
-          <li>Hasta 5 alumnos por grupo</li>
-          <li>Material digital exclusivo</li>
-          <li>Torneos internos</li>
+          <li>1/2/3+ veces por semana</li>
+          <li>Seguimiento personalizado</li>
+          <li>Más económico</li>
         </ul>
         <div class="price">
-          <span>$22</span> /persona/hora
+          desde <span>$35</span> /mes
         </div>
+        <button mat-stroked-button color="primary" routerLink="/class-detail">
+          Ver planes
+        </button>
       </mat-card-content>
     </mat-card>
     <mat-card class="price-card silver hover-lift">
       <mat-card-header>
-        <mat-card-title>Masterclass Online</mat-card-title>
+        <mat-card-title>Cursos de ajedrez (proximanente...)</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <ul>
-          <li>Sesiones mensuales</li>
-          <li>Q&A en vivo</li>
-          <li>Certificado digital</li>
+          <li>Material en video y texto</li>
+          <li>Cursos para diferentes niveles</li>
+          <li>Aperturas, estrategia, sacrificios, finales, y mas...</li>
         </ul>
         <div class="price">
-          <span>$10</span> /sesión
+          desde <span>$27</span>
         </div>
+        <div class="price">
+          acceso de por vida
+        </div>
+        <button disabled mat-stroked-button color="primary" routerLink="/courses">
+          Ver cursos
+        </button>
       </mat-card-content>
     </mat-card>
   </div>
   <div class="more-info">
     <b>Clase de prueba <span class="elite-gold">¡Gratis!</span></b> &nbsp;•&nbsp; <b>Consultas:</b>
-    <a href="mailto:info@ajedrezmarjorie.com">info@ajedrezmarjorie.com</a>
+    <a href="mailto:marjoriearmida@gmail.com">marjoriearmida@gmail.com</a>
     <br>
     <button mat-stroked-button color="primary" routerLink="/login">
       ¡Reserva tu lugar hoy!

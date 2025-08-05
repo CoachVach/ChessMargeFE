@@ -1,0 +1,60 @@
+<form class="add-class-dialog-form glass" (ngSubmit)="onSubmit()">
+  <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+    <h3 class="modal-title elite-gold">
+      {{ isEdit ? 'Editar Clase' : 'Añadir Clase' }}
+    </h3>
+    <button *ngIf="isEdit" mat-icon-button color="warn" type="button" (click)="onDelete()" style="margin-left: auto;" aria-label="Eliminar clase">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Título</mat-label>
+    <input matInput type="text" [(ngModel)]="title" name="title" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Tipo</mat-label>
+    <mat-select [(ngModel)]="type" name="type" required>
+      <mat-option value="individual">Individual</mat-option>
+      <mat-option value="group">Grupal</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Fecha</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="date" name="date" required autocomplete="off"/>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <div class="form-inline-row">
+    <mat-form-field appearance="outline" class="half-width">
+      <mat-label>Hora inicio</mat-label>
+      <input matInput type="time" [(ngModel)]="startTime" name="startTime" required />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="half-width">
+      <mat-label>Hora fin</mat-label>
+      <input matInput type="time" [(ngModel)]="endTime" name="endTime" required />
+    </mat-form-field>
+  </div>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Lugar</mat-label>
+    <input matInput type="text" [(ngModel)]="location" name="location" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Notas</mat-label>
+    <textarea matInput rows="2" [(ngModel)]="notes" name="notes"></textarea>
+  </mat-form-field>
+
+  <div *ngIf="errorMsg" class="add-class-error">{{ errorMsg }}</div>
+
+  <div class="form-actions">
+    <button mat-stroked-button color="primary" type="button" (click)="onCancel()" [disabled]="loading">Cancelar</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="loading">
+      <span *ngIf="!loading">{{ isEdit ? 'Actualizar' : 'Añadir' }}</span>
+      <span *ngIf="loading">{{ isEdit ? 'Actualizando...' : 'Guardando...' }}</span>
+    </button>
+  </div>
+</form>

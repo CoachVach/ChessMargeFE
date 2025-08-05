@@ -1,0 +1,41 @@
+<div class="add-student-dialog glass">
+  <h2>Nuevo Estudiante</h2>
+  <form (ngSubmit)="submit()" autocomplete="off">
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>Nombre completo *</mat-label>
+      <input matInput [(ngModel)]="form.fullName" name="fullName" autocomplete="off">
+    </mat-form-field>
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="form.email" name="email" autocomplete="off">
+    </mat-form-field>
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>Teléfono</mat-label>
+      <input matInput [(ngModel)]="form.phoneNumber" name="phoneNumber" autocomplete="off">
+    </mat-form-field>
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>Fecha de nacimiento</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="form.birthdate" name="birthdate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker startView="multi-year"></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>Elo FIDE</mat-label>
+      <input matInput type="number" [(ngModel)]="form.eloFIDE" name="eloFIDE">
+    </mat-form-field>
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>Elo Online</mat-label>
+      <input matInput type="number" [(ngModel)]="form.eloOnline" name="eloOnline">
+    </mat-form-field>
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>Notas</mat-label>
+      <textarea matInput [(ngModel)]="form.notes" name="notes"></textarea>
+    </mat-form-field>
+
+    <div class="actions">
+      <button mat-stroked-button type="button" (click)="close()" [disabled]="loading">Cancelar</button>
+      <button mat-flat-button color="primary" type="submit" [disabled]="loading">Crear</button>
+    </div>
+    <div class="error" *ngIf="error">{{error}}</div>
+  </form>
+</div>

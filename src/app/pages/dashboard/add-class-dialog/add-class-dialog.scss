@@ -1,0 +1,56 @@
+.add-class-dialog-form {
+  background: rgba(255,255,255,0.15);
+  border-radius: 24px;
+  border: 1.3px solid #f6da95aa;
+  box-shadow: 0 10px 38px #bba28738, 0 2px 20px #9f97b528;
+  backdrop-filter: blur(12px) saturate(119%);
+  padding: 26px 20px 3px 20px;
+  max-width: 420px;
+  min-width: 240px;
+  margin: 0 auto;
+  max-height: 80vh;
+  overflow-y: auto;
+
+  .modal-title {
+    margin-bottom: 12px;
+    font-size: 1.3em;
+    font-weight: bold;
+    letter-spacing: 1.1px;
+    text-align: center;
+    color: #ffbe3c;
+    text-shadow: 0 2px 13px #efcc4340;
+  }
+
+  .full-width { width: 100%; }
+  .half-width { width: 49%; margin-right: 2%; }
+  .form-inline-row { display: flex; flex-wrap: wrap; gap: 3%; }
+
+  .add-class-error {
+    margin: 10px 0 7px 0;
+    color: #c92c0e;
+    background: #fff7ddc0;
+    border-radius: 10px;
+    padding: 8px 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.06em;
+    border: 1px solid #edbd7c7d;
+    box-shadow: 0 1.5px 9px #ea747420;
+  }
+
+  .form-actions {
+    margin: 18px 0 8px 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    button { min-width: 95px; }
+  }
+}
+
+@media (max-width: 430px) {
+  .add-class-dialog-form {
+    padding: 4vw 2vw 2vw 2vw;
+    .form-inline-row { flex-direction: column; gap: 0; }
+    .half-width { width: 100%; margin-right: 0; }
+  }
+}

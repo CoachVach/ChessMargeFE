@@ -1,1 +1,39 @@
-<p>login works!</p>
+<section class="login-section-elite">
+  <div class="login-section-floating-pieces">
+    <div class="login-piece queen"></div>
+    <div class="login-piece knight"></div>
+    <div class="login-piece bishop"></div>
+  </div>
+  <div class="login-outer-card glass animate__fadeInDown">
+    <div class="login-image-area"></div>
+    <div class="login-info-area">
+      <div class="login-header">
+        <span class="login-icon">
+          <mat-icon>lock</mat-icon>
+        </span>
+        <h2 class="elite-gold">Acceso Academia Élite</h2>
+        <div class="login-subtitle">Inicia sesión para continuar</div>
+      </div>
+      <form (ngSubmit)="onSubmit()" autocomplete="on">
+        <mat-form-field appearance="outline" class="login-field">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" [(ngModel)]="email" name="email" required autocomplete="email" />
+          <mat-icon matSuffix>mail</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="login-field">
+          <mat-label>Contraseña</mat-label>
+          <input matInput [type]="showPassword ? 'text' : 'password'"
+                  [(ngModel)]="password" name="password" required autocomplete="current-password"/>
+          <button mat-icon-button matSuffix type="button" (click)="togglePassword()">
+            <mat-icon>{{ showPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <button mat-raised-button color="primary" class="login-btn" [disabled]="!email || !password">Iniciar Sesión</button>
+        <p *ngIf="errorMessage" class="login-error animate__bounceIn">{{ errorMessage }}</p>
+      </form>
+      <div class="login-footer">
+        ¿No tienes cuenta? <a routerLink="/register" class="login-link">¡Regístrate aquí!</a>
+      </div>
+    </div>
+  </div>
+</section>

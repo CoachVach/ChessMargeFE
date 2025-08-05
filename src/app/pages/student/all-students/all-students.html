@@ -1,0 +1,57 @@
+<ng-container *ngIf="!loading">
+  <div class="dashboard-bg">
+    <nav class="dashboard-navbar glass animate__fadeInDown">
+      <div class="navbar-logo"></div>
+      <div class="navbar-title">
+        Panel <span class="elite-gold">Academia Elite</span>
+      </div>
+      <div class="navbar-spacer"></div>
+      <button mat-icon-button color="primary" class="navbar-btn" title="Cerrar sesión">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </nav>
+
+    <section class="dashboard-content-container">
+      <h2 class="dashboard-section-title animate__fadeInDown2">
+        Estudiantes
+        <span class="dashboard-week-range" style="color:#82651d;font-weight:500;">Lista completa</span>
+      </h2>
+
+      <div class="students-list glass animate__fadeInDown3">
+        <div class="students-list-header">
+          <span class="scol s-avatar"></span>
+          <span class="scol s-name">Nombre</span>
+          <span class="scol s-email">Email</span>
+          <span class="scol s-phone">Teléfono</span>
+          <span class="scol s-birth">Nacimiento</span>
+          <span class="scol s-elo">Elo FIDE</span>
+          <span class="scol s-elo">Elo Online</span>
+        </div>
+        <div *ngIf="students.length === 0" class="students-empty">
+          No hay estudiantes registrados.
+        </div>
+        <div class="students-list-row"
+          *ngFor="let s of students"
+          [class.clickable]="true"
+          (click)="goToStudent(s.id)"
+          matRipple
+          style="cursor: pointer;"
+          matTooltip="Ver detalles">
+          <span class="scol s-avatar">
+            <div class="student-initials">{{ getInitials(s.fullName) }}</div>
+          </span>
+          <span class="scol s-name">{{ s.fullName }}</span>
+          <span class="scol s-email">{{ s.email }}</span>
+          <span class="scol s-phone">{{ s.phoneNumber }}</span>
+          <span class="scol s-birth">{{ s.birthdate ? (s.birthdate | date:'d MMM, yyyy') : '-' }}</span>
+          <span class="scol s-elo">{{ s.eloFIDE ?? '-' }}</span>
+          <span class="scol s-elo">{{ s.eloOnline ?? '-' }}</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <button mat-fab color="primary" class="students-fab" (click)="openAddStudentDialog()">
+    <mat-icon>add</mat-icon>
+    </button>
+</ng-container>

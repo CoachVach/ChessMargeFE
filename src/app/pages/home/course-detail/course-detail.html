@@ -1,0 +1,31 @@
+<mat-toolbar color="primary" class="main-toolbar animate__fadeInDown">
+  <div routerLink="/" class="toolbar-logo"></div>
+  <span class="brand-title">Academia de Ajedrez Marjorie Herrera</span>
+  <span class="spacer"></span>
+  <button mat-flat-button color="accent" class="header-action" routerLink="/login">
+    <mat-icon>login</mat-icon> Iniciar Sesión
+  </button>
+</mat-toolbar>
+
+<section class="courses-hero elite-bg">
+  <div class="courses-hero-content glass animate__fadeInDown">
+    <h1>Nuestros Cursos</h1>
+    <p>
+      Descubre la variedad de cursos pensados para cada etapa de tu camino ajedrecístico, con la excelencia de nuestra academia.
+    </p>
+  </div>
+</section>
+
+<section class="courses-list-section">
+  <div class="courses-grid">
+    <div *ngFor="let course of courses" class="course-card animate__fadeInUp">
+      <div class="course-img" [ngClass]="course.imgClass"></div>
+      <div class="course-info">
+        <h2>{{ course.title }}</h2>
+        <span class="course-level" [ngClass]="course.level">{{ course.level | titlecase }}</span>
+        <p>{{ course.description }}</p>
+        <button mat-raised-button color="accent">Saber más</button>
+      </div>
+    </div>
+  </div>
+</section>

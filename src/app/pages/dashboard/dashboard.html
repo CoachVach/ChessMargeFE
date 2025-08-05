@@ -1,0 +1,97 @@
+<ng-container *ngIf="!this.loading;">
+  <div class="dashboard-bg">
+    <nav class="dashboard-navbar glass animate__fadeInDown">
+      <div class="navbar-logo"></div>
+      <div class="navbar-title">
+        Panel <span class="elite-gold">Academia Elite</span>
+      </div>
+      <div class="navbar-spacer"></div>
+      <button mat-icon-button color="primary" class="navbar-btn" title="Cerrar sesión">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </nav>
+
+    <section class="dashboard-content-container">
+      <div class="dashboard-week-header">
+        <button mat-icon-button class="week-arrow" (click)="prevWeek()" title="Semana anterior">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <h2 class="dashboard-section-title animate__fadeInDown2">
+          Calendario de Clases
+          <span class="dashboard-week-range">
+            {{ weekDays[0] | date:'d MMM' }} - {{ weekDays[6] | date:'d MMM, yyyy' }}
+          </span>
+        </h2>
+        <button mat-icon-button class="week-arrow" (click)="nextWeek()" title="Semana siguiente">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+      <div class="dashboard-week-actions">
+        <button mat-stroked-button color="primary" (click)="goToToday()" class="week-today-btn" [disabled]="isCurrentWeek()">
+          Hoy
+        </button>
+      </div>
+
+      <div class="dashboard-calendar glass animate__fadeInDown3">
+        <div class="calendar-grid">
+          <div class="calendar-times">
+            <div class="calendar-time" *ngFor="let t of calendarTimes">
+              {{ t }}
+            </div>
+          </div>
+          <div class="calendar-day-cols">
+            <div
+              class="calendar-day-col"
+              *ngFor="let day of weekDays; let dayIdx = index;">
+              <div class="calendar-day-label">
+                <span class="day-name">{{ day | date:'EEE' }}</span>
+                <span class="day-number" [class.today]="isSameDay(day, today)">
+                  {{ day | date:'d' }}
+                </span>
+              </div>
+              <div class="calendar-classes-wrapper">
+                <div
+                  class="current-hour-line"
+                  *ngIf="isSameDay(day, today) && isCurrentWeek()"
+                  [ngStyle]="getCurrentHourLineStyle(day)">
+                  <div class="hour-dot"></div>
+                  <div class="hour-label">{{ today | date:'HH:mm' }}</div>
+                </div>
+                <ng-container *ngFor="let s of getSessionsByDay(day)">
+                  <div
+                    class="calendar-class-card"
+                    [ngStyle]="getClassCardStyle(s)"
+                    [ngClass]="{ overlap: doesOverlap(s, day) }"
+                    matTooltip="
+                      {{ s.title }}
+                      {{ s.startTime | date:'shortTime' }} - {{ s.endTime | date:'shortTime' }}
+                      {{ s.type | titlecase }}
+                      {{ s.location ? (' • ' + s.location) : '' }}
+                    "
+                    (click)="openEditClassDialog(s)">
+                    <div class="calendar-class-title">{{ s.title }}</div>
+                    <div class="calendar-class-datetime">
+                      {{ s.startTime | date:'HH:mm' }} - {{ s.endTime | date:'HH:mm' }}
+                    </div>
+                    <div class="calendar-class-type" [ngClass]="s.type">
+                      <mat-icon *ngIf="s.type === 'individual'">person</mat-icon>
+                      <mat-icon *ngIf="s.type === 'group'">group</mat-icon>
+                      {{ s.type === 'individual' ? 'Individual' : 'Grupal' }}
+                    </div>
+                    <div *ngIf="s.location" class="calendar-class-location">
+                      <mat-icon>place</mat-icon> {{ s.location }}
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <button mat-fab color="primary" class="dashboard-fab" (click)="openAddClassDialog()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</ng-container>

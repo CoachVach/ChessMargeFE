@@ -1,0 +1,202 @@
+// Animaciones
+@keyframes fadeInDown { from { opacity:0; transform:translateY(-60px);} to{ opacity:1; transform:none;} }
+@keyframes fadeInUp   { from { opacity:0; transform:translateY(80px);} to{ opacity:1; transform:none;} }
+@keyframes floatSoft  { 0%{transform: translateY(0);} 100%{transform: translateY(10px);} }
+
+.animate__fadeInDown {animation: fadeInDown 1s .1s both;}
+.animate__fadeInUp   {animation: fadeInUp 0.6s .18s both;}
+
+// NAVBAR
+.main-toolbar {
+  background: rgba(194,34,128, 0.92);
+  box-shadow: 0 7px 38px #e83b8f60;
+  padding: 0 32px;
+  display: flex; align-items: center;
+
+  .toolbar-logo {
+    width: 52px; height: 52px; border-radius: 8px; margin-right: 18px;
+    background: url('../../../../assets/images/logo.png') center/cover no-repeat;
+    box-shadow: 0 1px 9px #e83b8f38;
+    display: inline-block;
+  }
+  .brand-title {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-size: 1.4rem; letter-spacing: 1.5px;
+    color: #ffb1df; font-weight: 900;
+    text-shadow: 0 1px 16px #d02f8238;
+  }
+  .header-action {
+    font-weight: 700;
+    margin-left: 18px;
+    border-radius: 22px;
+    background: linear-gradient(90deg,#e959a7 10%, #ff86cc 80%);
+    color: #fffbe2 !important;
+    box-shadow: 0 1px 9px #ea6bc41b;
+    padding: 6px 22px;
+  }
+}
+.spacer { flex: 1 1 auto; }
+
+// HERO cursos
+.courses-hero {
+  min-height: 260px;
+  background: linear-gradient(164deg, #ea83c5 27%, #fff1fa 95%),
+    url('../../../../assets/images/bg.jpeg');
+  background-size: cover;
+  background-position: center center;
+  display: flex; align-items: center; justify-content: center;
+  padding: 44px 0 36px 0;
+}
+.courses-hero-content {
+  background: rgba(255,255,255,.18);
+  border-radius: 38px;
+  box-shadow: 0 12px 44px #ef7fc438;
+  backdrop-filter: blur(8px) saturate(132%);
+  border: 1.2px solid #eb6bb872;
+  max-width: 630px;
+  margin: 0 18px;
+  padding: 45px 32px 37px 32px;
+  text-align: center;
+  h1 {
+    color: #71074a;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 8px #d03aab22;
+  }
+  p {
+    color: #6e2860; font-size: 1.15rem; margin: 0; font-weight: 500;
+  }
+}
+
+// BODY cursos
+.courses-list-section {
+  background: linear-gradient(120deg, #ffeefd 68%, #fff8fa 100%);
+  min-height: 66vh;
+  padding: 55px 0 86px 0;
+}
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 3vw;
+}
+
+.course-card {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(110deg,#fff0fa 80%,#fce6f1 100%);
+  border-radius: 23px;
+  box-shadow: 0 5px 25px #e83b8f15, 0 1px 13px #e83b8f09;
+  overflow: hidden;
+  transition: transform 0.21s cubic-bezier(.34,1.4,.54,1.12),
+              box-shadow 0.24s cubic-bezier(.4,1.2,.12,1.1);
+  position: relative;
+  border: 2px solid #ffb1df39;
+  &:hover {
+    transform: scale(1.052) translateY(-12px) rotate(-0.5deg);
+    box-shadow: 0 14px 48px #e25db584, 0 2.5px 22px #e83b8f31;
+    .course-img { filter: brightness(1.13) drop-shadow(0 2px 18px #ea83c523);}
+  }
+}
+.course-img {
+  width: 100%;
+  min-height: 150px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 22px; border-top-right-radius: 22px;
+  filter: brightness(.97) grayscale(.04);
+  transition: filter .18s;
+  background-color: #ffe3f7;
+}
+
+.course-info {
+  padding: 23px 23px 20px 23px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  h2 {
+    font-size: 1.23rem;
+    font-weight: 700;
+    margin: 0 0 2px;
+    color: #c13c8f;
+    letter-spacing: 1px;
+  }
+  .course-level {
+    font-size: .995em;
+    padding: 2px 13px;
+    border-radius: 13px;
+    margin-bottom: 7px;
+    font-weight: 600;
+    display: inline-block;
+    letter-spacing: 1.0px;
+    background: #ffe2f2;
+    color: #ea83c5;
+    box-shadow: 0 1px 6px #e25db513;
+    &.principiante {
+      background: #f7ecfc;
+      color: #843bb9;
+    }
+    &.intermedio {
+      background: #fff1fa;
+      color: #c13c8f;
+    }
+    &.avanzado {
+      background: #ffc3df;
+      color: #a6215e;
+    }
+    &.pro {
+      background: #ffe7f2;
+      color: #a7126b;
+    }
+  }
+  p {
+    color: #7d588e;
+    font-size: 1.09em;
+    margin-bottom: 2px;
+    min-height: 56px;
+  }
+  button {
+    width: fit-content;
+    align-self: flex-end;
+    margin-top: 9px;
+    font-weight: 700;
+    border-radius: 22px;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-shadow: 0 1px 9px #ea6bc41b;
+    background: linear-gradient(90deg,#e959a7 10%, #ff86cc 80%);
+    color: #fffbe2;
+    transition: box-shadow .17s, filter .15s;
+    filter: brightness(1);
+    &:hover {
+      box-shadow: 0 7px 23px #ea6bc179;
+      filter: brightness(1.08);
+    }
+  }
+}
+
+/* Ejemplo de fondos de cursos - crea tus course.imgClass*/ 
+.chess-init      { background-image: url('../../../../assets/images/bg.jpeg'); }
+.chess-strategy  { background-image: url('../../../../assets/images/bg.jpeg'); }
+.chess-tactics   { background-image: url('../../../../assets/images/bg.jpeg'); }
+.chess-endgames  { background-image: url('../../../../assets/images/bg.jpeg'); }
+.chess-pro       { background-image: url('../../../../assets/images/bg.jpeg'); }
+.chess-masters   { background-image: url('../../../../assets/images/bg.jpeg'); }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .courses-grid { max-width: 98vw; }
+  .course-card { min-width: 0; }
+}
+@media (max-width: 700px) {
+  .courses-grid { grid-template-columns: 1fr; gap: 22px; padding: 0 1vw; }
+  .courses-hero-content { padding: 18px 4vw 18px 4vw; h1 { font-size: 1.38rem; } }
+  .course-info { padding: 11px 10px 11px 10px; }
+  .course-img { min-height: 125px; height: 138px; }
+  .brand-title { font-size: 1em; }
+  .main-toolbar .toolbar-logo { width: 38px; height: 38px; }
+}
